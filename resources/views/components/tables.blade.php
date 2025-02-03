@@ -28,7 +28,7 @@
             <div class="relative items-center px-2">
                
 
-                <input @keydown.escape="search='';" x-ref="search" name="tables" type="text" size="sm" x-model="search" class="px-0 pl-3.5 w-full text-xs text-gray-500 bg-transparent -translate-y-0.5 outline-none focus:text-gray-600 peer focus:outline-none active:outline-none focus:ring-0" />
+                <input @keydown.escape="search='';" x-ref="search" name="tables" type="text" size="sm" x-model="search" class="px-0 pl-3.5 w-full h-5 text-xs text-gray-500 bg-transparent border-0 -translate-y-0.5 outline-none focus:text-gray-600 peer focus:outline-none active:outline-none focus:ring-0" />
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="absolute top-0 left-0 mt-1.5 ml-2 text-gray-900 opacity-50 peer-focus:opacity-90 size-3">
   <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
 </svg>
