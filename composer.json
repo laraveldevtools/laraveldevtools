@@ -1,0 +1,54 @@
+{
+    "name": "laraveldevtools/database",
+    "description": "Laravel DevTools Database",
+    "keywords": [
+        "laraveldevtools",
+        "database"
+    ],
+    "homepage": "https://github.com/laraveldevtools/database",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tony Lea",
+            "email": "tony@devdojo.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0|^8.1|^8.2|^8.3|^8.4",
+        "illuminate/support": "^10.0||^11.0",
+        "livewire/livewire": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laraveldevtools\\Database\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laraveldevtools\\Database\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laraveldevtools\\Database\\DatabaseServiceProvider"
+            ],
+            "aliases": {
+                "Database": "Laraveldevtools\\Database\\DatabaseFacade"
+            }
+        }
+    }
+}
