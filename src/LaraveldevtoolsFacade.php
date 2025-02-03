@@ -1,13 +1,13 @@
 <?php
 
-namespace Laraveldevtools\Database;
+namespace Laraveldevtools\Laraveldevtools;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Laraveldevtools\Database\Skeleton\SkeletonClass
+ * @see \Laraveldevtools\Laraveldevtools\LaraveldevtoolsClass
  */
-class DatabaseFacade extends Facade
+class LaraveldevtoolsFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -16,6 +16,6 @@ class DatabaseFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'database';
+        return 'laraveldevtools';
     }
 }

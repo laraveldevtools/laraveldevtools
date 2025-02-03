@@ -1,6 +1,6 @@
 <?php
 
-namespace Laraveldevtools\Database\Components;
+namespace Laraveldevtools\Laraveldevtools\Components;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -119,9 +119,9 @@ class Database extends Component
 
         $data = $data->orderBy($this->sortColumn, $this->sortDirection)->select($this->tableColumns);
 
-        return view('laraveldevtools-database::components.database', [
+        return view('laraveldevtools::components.database', [
             'tableData' => $data->paginate($this->paginate)
-        ])->layout('laraveldevtools-database::components.layouts.app');
+        ])->layout('laraveldevtools::components.layouts.app');
 
     }
 }

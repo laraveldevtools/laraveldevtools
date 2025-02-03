@@ -1,21 +1,20 @@
 <?php
 
-namespace Laraveldevtools\Database;
+namespace Laraveldevtools\Laraveldevtools;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Laraveldevtools\Database\Components\DatabaseDevTools;
-use Laraveldevtools\Database\Components\Database as DatabaseComponent;
-use Laraveldevtools\Database\Components\Tables;
+use Laraveldevtools\Laraveldevtools\Components\Database as DatabaseComponent;
+use Laraveldevtools\Laraveldevtools\Components\Tables;
 
-class DatabaseServiceProvider extends ServiceProvider
+class LaraveldevtoolsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laraveldevtools-database');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laraveldevtools');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         Livewire::component('laraveldevtools-database', DatabaseComponent::class);

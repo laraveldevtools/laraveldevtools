@@ -1,11 +1,11 @@
 {
-    "name": "laraveldevtools/database",
-    "description": "Laravel DevTools Database",
+    "name": "laraveldevtools/laraveldevtools",
+    "description": "Laravel DevTools",
     "keywords": [
         "laraveldevtools",
-        "database"
+        "devtools"
     ],
-    "homepage": "https://github.com/laraveldevtools/database",
+    "homepage": "https://github.com/laraveldevtools/laraveldevtools",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Laraveldevtools\\Database\\": "src"
+            "Laraveldevtools\\Laraveldevtools\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Laraveldevtools\\Database\\Tests\\": "tests"
+            "Laraveldevtools\\Laraveldevtools\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Laraveldevtools\\Database\\DatabaseServiceProvider"
+                "Laraveldevtools\\Laraveldevtools\\LaraveldevtoolsServiceProvider"
             ],
             "aliases": {
-                "Database": "Laraveldevtools\\Database\\DatabaseFacade"
+                "Laraveldevtools": "Laraveldevtools\\Laraveldevtools\\LaraveldevtoolsFacade"
             }
         }
     }

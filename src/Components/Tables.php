@@ -1,6 +1,6 @@
 <?php
 
-namespace Laraveldevtools\Database\Components;
+namespace Laraveldevtools\Laraveldevtools\Components;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ class Tables extends Component
 
     public function render()
     {
-        return view('laraveldevtools-database::components.tables')
-            ->layout('laraveldevtools-database::components.layouts.app');
+        return view('laraveldevtools::components.tables')
+            ->layout('laraveldevtools::components.layouts.app');
     }
 }
