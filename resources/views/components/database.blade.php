@@ -15,7 +15,7 @@
         })
     "
     @hide-entry-editor="entryEditor = false"
-    class="overflow-auto relative p-3 w-full h-full">
+    class="overflow-auto relative px-3 w-full h-full">
     <div class="relative mb-3 w-full">
         <svg class="absolute mt-2.5 ml-3.5 w-5 h-5 text-gray-400 peer-focused:text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
         <input type="text" wire:model.live.debounce.300ms="search" class="pl-10 w-full h-10 text-sm bg-gray-100 rounded-lg border-0 peer focus:ring-0 focus:outline-none focus-within:outline-none" placeholder="Search" />
@@ -85,31 +85,32 @@
                                 x-transition:leave-end="translate-x-full" 
                                 class="w-screen max-w-xl">
                                 <div class="flex flex-col h-full bg-white divide-y divide-gray-200 shadow-xl">
-                                    <div class="flex overflow-y-scroll flex-col flex-1 py-6 min-h-0">
-                                        <div class="px-4 sm:px-6">
-                                        <div class="flex justify-between items-start">
+                                    <div class="flex overflow-y-scroll flex-col flex-1 py-2 min-h-0">
+                                        <div class="px-4">
+                                        <div class="flex justify-between items-center">
                                             <h2 class="text-base font-light leading-6 text-gray-900" id="slide-over-title">Edit <span class="font-semibold">{{ $this->table }}</span> record</h2>
                                             <div class="flex items-center ml-3 h-auto">
-                                                <button @click="entryEditor=false" class="relative top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-0 space-x-1 text-[0.7rem] font-medium leading-none -translate-y-1 border rounded-full border-neutral-200 text-neutral-600 group hover:text-gray-700 hover:bg-neutral-100">
+                                                <button @click="entryEditor=false" class="relative top-0 right-0 z-30 flex items-center justify-center px-3 mt-0 space-x-1 text-[0.7rem] font-medium leading-none py-1.5 rounded-md text-neutral-600 group hover:text-gray-700 hover:bg-neutral-100">
                                                     <span class="text-gray-400 translate-x-px -translate-y-px group-hover:text-gray-700">esc</span>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                                                 </button>
                                             </div>
                                         </div>
                                         </div>
-                                        <div class="relative flex-1 px-4 mt-6 sm:px-6">
+                                        <div class="relative flex-1 px-4 mt-3">
                                             @if($primaryKeyValue ?? false)
                                                 <div class="flex justify-start items-start w-full h-full">
-                                                    <div class="space-y-5 w-full">
+                                                    <div class="space-y-3 w-full">
                                                         @foreach($this->entry as $column => $value)
                                                             <div class="relative w-full">
-                                                                <label class="block flex absolute items-center px-3 pt-1.5 h-8 text-xs font-semibold leading-6 text-gray-500 peer-focus:text-gray-900">
+                                                                <input type="text" wire:model="entryArray.{{ $column }}" placeholder="{{ ucwords(str_replace('_', ' ', $column)) }}" class="flex px-2 pt-[26px] pb-1.5 w-full h-auto text-sm bg-gray-100 rounded-lg border-0 transition-colors duration-200 ease-out peer focus:bg-gray-200 focus:ring-0 focus-within:ring-0 placeholder:text-neutral-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" />
+                                                                <label class="block flex absolute top-0 items-center px-2 h-7 text-xs font-semibold leading-6 text-gray-400 peer-focus-within:text-gray-900">
                                                                     @if($column == 'id')
                                                                         <svg class="mr-1 w-5 h-5" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.273 8.76a3.9 3.9 0 1 1-5.516-5.516A3.9 3.9 0 0 1 8.273 8.76ZM19.55 5.996l-10.142.006M18.087 8.922v-2.92M15.563 8.922l-.072-2.92" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                                                     @endif
                                                                     <span>{{ $column }}</span>
                                                                 </label>
-                                                                <input type="text" wire:model="entryArray.{{ $column }}" placeholder="{{ ucwords(str_replace('_', ' ', $column)) }}" class="flex px-3 py-2 pt-8 w-full h-auto text-sm bg-gray-100 rounded border-0 transition-colors duration-200 ease-out peer focus:bg-gray-200 focus:ring-0 focus-within:ring-0 placeholder:text-neutral-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" />
+                                                                
                                                             </div>
                                                         @endforeach
                                                     </div>
