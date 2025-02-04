@@ -1,5 +1,7 @@
 <div x-data="{
-    section: @entangle('section')
+    section: @entangle('section'),
+    file_contents: @entangle('file_contents'),
+    file: @entangle('file'),
 }" class="flex overflow-hidden flex-col items-stretch w-screen h-screen">
     <nav class="flex flex-shrink-0 items-center px-3 py-2 space-x-2 w-full h-auto border-b border-gray-100 text-neutral-600">
         <button class="flex justify-center items-center w-7 h-7 rounded group text-neutral-600 hover:bg-black/[7%]">
@@ -35,17 +37,24 @@
             <span>Media</span>
         </button>
     </nav>
-    <div x-show="section == 'code'" class="absolute z-50 w-screen  pt-[45px] h-screen pointer-events-none">
-        <div class="relative w-full h-full pointer-events-auto">
-            <iframe src="/tinker" class="box-border block w-full h-full" scrolling="no" sandbox="allow-scripts allow-same-origin" width="100%" height="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"" frameborder="0"></iframe>
-        </div>
+    @if($file != null && $file_contents != null)
+    <div class="flex items-stretch w-screen h-screen justify-stretch">
+        <x-laraveldevtools::editor />
     </div>
-    <div x-show="section == 'database'" class="flex overflow-hidden items-stretch pt-5 pb-3 w-full h-full">
-        <div class="overflow-auto flex-shrink-0 w-64 h-full">
-            @livewire('laraveldevtools-tables')
+        {{-- <textarea class="h-full">{!! $file_contents !!}</textarea> --}}
+    @else
+        <div x-show="section == 'code'" class="absolute z-50 w-screen  pt-[45px] h-screen pointer-events-none">
+            <div class="relative w-full h-full pointer-events-auto">
+                <iframe src="/tinker" class="box-border block w-full h-full" scrolling="no" sandbox="allow-scripts allow-same-origin" width="100%" height="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"" frameborder="0"></iframe>
+            </div>
         </div>
-        <div class="overflow-hidden flex-1 max-w-full h-full">
-            @livewire('laraveldevtools-database')
+        <div x-show="section == 'database'" class="flex overflow-hidden items-stretch pt-5 pb-3 w-full h-full">
+            <div class="overflow-auto flex-shrink-0 w-64 h-full">
+                @livewire('laraveldevtools-tables')
+            </div>
+            <div class="overflow-hidden flex-1 max-w-full h-full">
+                @livewire('laraveldevtools-database')
+            </div>
         </div>
-    </div>
+    @endIf
 </div>

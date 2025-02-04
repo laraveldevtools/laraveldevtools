@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Laraveldevtools\Laraveldevtools\Components\Database as DatabaseComponent;
 use Laraveldevtools\Laraveldevtools\Components\Tables;
+use Laraveldevtools\Laraveldevtools\Components\Main;
 
 class LaraveldevtoolsServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,7 @@ class LaraveldevtoolsServiceProvider extends ServiceProvider
 
         Livewire::component('laraveldevtools-database', DatabaseComponent::class);
         Livewire::component('laraveldevtools-tables', Tables::class);
+        Livewire::component('laraveldevtools-main', Main::class);
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
