@@ -57,4 +57,23 @@
             </div>
         </div>
     @endIf
+
+    <div class="fixed bottom-0 left-0 w-full h-auto">
+        @php
+            $pathname =  trim(Request::get('pathname'), '/');
+            $jsonPath = storage_path('framework/devtools/views/' . urlencode($pathname) . '.json');
+            $views = [];
+            if (file_exists($jsonPath)) {
+                $jsonData = json_decode(file_get_contents($jsonPath), true);
+                $views = $jsonData['views'] ?? [];
+            }
+        @endphp
+        <div class="bg-stone-800 px-2 py-1 flex text-white items-center space-x-2">
+            <h3 class="text-sm font-semibold">Views:</h3>
+            <ul class="flex space-x-1 items-center">
+                @foreach($views as $view)
+                    <li class="text-xs dark:text-gray-300 bg-blue-100 text-blue-800 rounded-full px-2 py-0.5">{{ basename($view) }}</li>
+                @endforeach
+            </ul>
+        </div>
 </div>

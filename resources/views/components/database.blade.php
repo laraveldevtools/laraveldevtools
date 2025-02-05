@@ -139,4 +139,5 @@
     <div class="flex justify-between items-center mt-5 w-full">
         {{-- {{ $tableData->links('foundation_views::partials.pagination') }} --}}
     </div>
+
 </div>

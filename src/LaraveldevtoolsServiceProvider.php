@@ -7,6 +7,7 @@ use Livewire\Livewire;
 use Laraveldevtools\Laraveldevtools\Components\Database as DatabaseComponent;
 use Laraveldevtools\Laraveldevtools\Components\Tables;
 use Laraveldevtools\Laraveldevtools\Components\Main;
+use Laraveldevtools\Laraveldevtools\Middleware\GetFilesUsed;
 
 class LaraveldevtoolsServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,8 @@ class LaraveldevtoolsServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laraveldevtools');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        $this->app['router']->pushMiddlewareToGroup('web', GetFilesUsed::class);
 
         Livewire::component('laraveldevtools-database', DatabaseComponent::class);
         Livewire::component('laraveldevtools-tables', Tables::class);
